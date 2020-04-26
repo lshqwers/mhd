@@ -14,28 +14,16 @@
 </header>
 <!-- 调用组件把它做标签来使用 在Swiper里面调用SwiperItem -->
 <!-- 在组件中写的开始的内容和闭合的内容,叫组件的内容(用slot插槽) -->
-<!-- my-swiper,它会自动继承在根元素上面,class会和并到组件的根元素上面 -->
-<Swiper class="my-swiper"  :autoplay="1000" @onChange="onChange"><!-- onChange没有加括号的有event -->
+<Swiper>
 <!--下面的东西会渲染在炕中,<div class="swiper-slide">Slide 2</div>把它做成一个组件 -->
-<!-- SwiperItem的内容要通过内容去填充 -->
-<SwiperItem>
-   <img
-              src="https://img.manhuadao.cn/upload/AdGroup201906/9315f7dd68b346928219f29bd9c89e60.jpg"
-              alt
-            />
-</SwiperItem>
-<SwiperItem>
-    <img
-              src="https://img.manhuadao.cn/upload/AdGroup201903/22b43c03a0f943cda001c5338fe0ddd9.jpg"
-              alt
-            />
-</SwiperItem>
-<SwiperItem>
-    <img
-              src="https://img.manhuadao.cn/upload/AdGroup202003/dda50e4233e34186910fd490aea1cd91.jpg"
-              alt
-            />
-</SwiperItem>
+<div class="swiper-slide">
+          Slide 1
+        </div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+<!-- <SwiperItem>1</SwiperItem>
+<SwiperItem>2</SwiperItem>
+<SwiperItem>3</SwiperItem> -->
 </Swiper>
   </div>
 </template>
@@ -44,22 +32,13 @@
 // 使用../相对路径时,如果当前组件位置发生变化
 // 那么相对路径也需要去修改,如果使用@别名的样式。就不需要去修改这个路径了
 // @这个是引入组件,不要搞错了,npm下载的不需要去引入
-// import Swiper from '@/components/Swiper/Swiper.vue'
+import Swiper from '@/components/Swiper/Swiper.vue'
 // import SwiperItem from '@/components/Swiper/SwiperItem.vue'
-// 内视(对象)做解构赋值拿出暴露的东西
-import { Swiper, SwiperItem } from '@/components/Swiper'
-// 引入之后文件对象,把它暴露出来
 export default {
   // Swiper:Swiper
   components: {
-    Swiper,
-    // 注册当前的局部组件
-    SwiperItem
-  },
-  methods: {
-    onChange (index) { // 传过来一个index
-      console.log('hello', index)
-    }
+    Swiper
+    // SwiperItem
   }
 }
 </script>
@@ -122,10 +101,6 @@ export default {
 //     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAUBAMAAAANaGKIAAAAMFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD8/Pzs7Oyvr68AAADW1tYAAAD///8YAGtvAAAAD3RSTlMABBwyDQgVCyf2zXAQoC3PT9+CAAAAd0lEQVQY02PACQSRAFSIUTS83AUKyksDBcCCojVpSnCQdjwQrDAkqc8YDl6ouQqAFDp1r/wPB7N2qICUimfc/48E/rYVAgVjtP+jgE1HgUaGdaEKrkgVYGAs60QVnJGOXRCrdmwW4XISpuNxeBMzQHAEHWYg4wIAe7Sz99Wx/OUAAAAASUVORK5CYII=) no-repeat 50%;
 //     background-size: contain
 // }
-  .my-swiper img{
-    //如果图片太大可以用width:100%
-    width: 100%
-  }
  }</style>
  <style lang="scss">
  </style>

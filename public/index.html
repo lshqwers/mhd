@@ -8,9 +8,18 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
     <!-- 把那个宽度自适应的文件放这里  -->
     <script src="./lib/flexible.js"></script>
+    <!-- 1.首先加载插件，需要用到的文件有swiper.min.js和swiper.min.css文件。-->
+    <!-- 直接在终端中去下载,swiper  nom install swiper -->
+    <!-- <link rel="stylesheet" href="path/to/swiper.min.css"/> -->
+    <style>
+         #app{
+            background: red
+         }
+    </style>
   </head>
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <!-- <script src="path/to/swiper.min.js"></script> -->
   </body>
 </html>

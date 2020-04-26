@@ -47,5 +47,12 @@ table {
 	border-spacing: 0;
 }
 html,body,#app{
+	// 缩放窗口的时候最大保持540px
+	// 要某个的px单位,不希望被转换
+	// 这里的px单位,不需要转成rem
+	// 只需要把将px=>PX
+	//flexible.js这个文件的代码,可以把窗口改变
+	max-width: 540PX;
+	margin: auto;
 	height: 100%;
 }
