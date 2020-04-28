@@ -3,16 +3,15 @@
 <!-- 首页头部end -->
 <!-- 录播图start -->
 <!-- <link rel="stylesheet" href="dist/css/swiper.min.css"> -->
-<div class="swiper-container">
+<div class="swiper-container" ref="swiper">
     <div class="swiper-wrapper">
         <!-- 轮播图的项目写死了,用我们调用组件时替换这里slot换掉 -->
-        <!--
-        <div class="swiper-slide">
+
+        <!-- <div class="swiper-slide">
           Slide 1
         </div>
         <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
-        -->
+        <div class="swiper-slide">Slide 3</div> -->
         <!-- 会把一些的index.vue的元素渲染在这个炕中  -->
         <slot/>
     </div>
@@ -39,13 +38,17 @@ export default {
       default: true
     }
   },
-  // swiper的实列要放在这里写 在mounted
+  // swiper的实列要放在这里写   在mounted
   mounted () {
     const that = this
+    // .ref如果标记的是**普通的元素**,那么后续得到的是**一个dom对象**
+    console.log(this.$refs.swiper)
+    console.log(this.$el)// $el是组件根元素的dom对象
     // 这里的Swiper(大写的Swiper是上面获取的东西)
     // 42:7  error  Do not use 'new' for side effects no-new  这里不能是用new
     /* eslint-disable */
-      new Swiper('.swiper-container', {
+    // this.$el
+      new Swiper(this.$el, {
       /* autoplay:true,
       direction: 'vertical', //  垂直的轮播图
       direction: 'horizontal',  //  水平的轮播图
@@ -86,29 +89,3 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-.swiper-container{
-     width: 100%;
-     // 要除以heigth/2,这里的规则
-     height: 180px;
-    .swiper-pagination-bullet{
-    opacity: 1;
-    vertical-align: middle;
-    width: 6px;
-    height: 6px;
-    //75/2* 0 .13333333rem=5px
-    margin: 0 5px;
-    border-radius: 50%;
-    background-color: hsla(0,0%,100%,.7)
-    }
-    .swiper-slide-duplicate-active{
-      width: 20px;
-      height: 10px;
-      background:url("../../assets/icon/dot.png") no-repeat;
-      background-size: 100%;
-    }
-    // img{
-    //   background-size: 100%;
-    // }
-   };
-</style>
